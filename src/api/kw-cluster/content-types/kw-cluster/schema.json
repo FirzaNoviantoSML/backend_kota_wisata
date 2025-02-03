@@ -53,6 +53,9 @@
       "components": [
         "components.cluster-type"
       ]
+    },
+    "map_url": {
+      "type": "string"
     }
   }
 }

@@ -464,6 +464,7 @@ export interface ApiKwClusterKwCluster extends Struct.CollectionTypeSchema {
     > &
       Schema.Attribute.Private;
     logo: Schema.Attribute.Media<'images'>;
+    map_url: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
     text: Schema.Attribute.String;
     title: Schema.Attribute.String;
