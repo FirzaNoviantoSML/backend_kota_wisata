@@ -14,12 +14,13 @@ export interface ComponentsButton extends Struct.ComponentSchema {
 export interface ComponentsCarousel extends Struct.ComponentSchema {
   collectionName: 'components_components_carousels';
   info: {
+    description: '';
     displayName: 'Carousel';
   };
   attributes: {
     button: Schema.Attribute.Component<'components.button', false>;
     description: Schema.Attribute.Text;
-    image: Schema.Attribute.Media<'images'>;
+    image: Schema.Attribute.Media<'images', true>;
     title: Schema.Attribute.String;
   };
 }
