@@ -447,10 +447,13 @@ export interface ApiKwClusterKwCluster extends Struct.CollectionTypeSchema {
   };
   attributes: {
     buttons: Schema.Attribute.Component<'components.button', true>;
+    cluster_code: Schema.Attribute.String;
     cluster_type: Schema.Attribute.DynamicZone<['components.cluster-type']>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    download_link: Schema.Attribute.String;
+    e_catalog_link: Schema.Attribute.String;
     image: Schema.Attribute.Media<'images'>;
     kw_development: Schema.Attribute.Relation<
       'manyToOne',
@@ -464,12 +467,15 @@ export interface ApiKwClusterKwCluster extends Struct.CollectionTypeSchema {
     > &
       Schema.Attribute.Private;
     logo: Schema.Attribute.Media<'images'>;
+    map_url: Schema.Attribute.String;
+    project_code: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
     text: Schema.Attribute.String;
     title: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    youtube_url: Schema.Attribute.String;
   };
 }
 
@@ -501,6 +507,35 @@ export interface ApiKwDevelopmentKwDevelopment
     > &
       Schema.Attribute.Private;
     nama: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiKwHomePageKwHomePage extends Struct.SingleTypeSchema {
+  collectionName: 'kw_home_pages';
+  info: {
+    description: '';
+    displayName: 'KW_Home_Page';
+    pluralName: 'kw-home-pages';
+    singularName: 'kw-home-page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::kw-home-page.kw-home-page'
+    > &
+      Schema.Attribute.Private;
+    main: Schema.Attribute.DynamicZone<['layout.banner', 'layout.second']>;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -1171,6 +1206,7 @@ declare module '@strapi/strapi' {
       'api::home-page.home-page': ApiHomePageHomePage;
       'api::kw-cluster.kw-cluster': ApiKwClusterKwCluster;
       'api::kw-development.kw-development': ApiKwDevelopmentKwDevelopment;
+      'api::kw-home-page.kw-home-page': ApiKwHomePageKwHomePage;
       'api::kw-news-event.kw-news-event': ApiKwNewsEventKwNewsEvent;
       'api::kw-the-city.kw-the-city': ApiKwTheCityKwTheCity;
       'api::specification.specification': ApiSpecificationSpecification;

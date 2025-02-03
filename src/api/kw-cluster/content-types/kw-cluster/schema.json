@@ -53,6 +53,24 @@
       "components": [
         "components.cluster-type"
       ]
+    },
+    "map_url": {
+      "type": "string"
+    },
+    "project_code": {
+      "type": "string"
+    },
+    "cluster_code": {
+      "type": "string"
+    },
+    "youtube_url": {
+      "type": "string"
+    },
+    "download_link": {
+      "type": "string"
+    },
+    "e_catalog_link": {
+      "type": "string"
     }
   }
 }
