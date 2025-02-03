@@ -547,6 +547,7 @@ export interface ApiKwHomePageKwHomePage extends Struct.SingleTypeSchema {
 export interface ApiKwNewsEventKwNewsEvent extends Struct.CollectionTypeSchema {
   collectionName: 'kw_news_events';
   info: {
+    description: '';
     displayName: 'KW_News_Event';
     pluralName: 'kw-news-events';
     singularName: 'kw-news-event';
@@ -555,10 +556,10 @@ export interface ApiKwNewsEventKwNewsEvent extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
-    content: Schema.Attribute.Blocks;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    date_time: Schema.Attribute.DateTime;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -566,6 +567,8 @@ export interface ApiKwNewsEventKwNewsEvent extends Struct.CollectionTypeSchema {
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
+    rich_text: Schema.Attribute.Blocks;
+    rich_text_classic: Schema.Attribute.RichText;
     title: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
