@@ -1,0 +1,45 @@
+{
+  "collectionName": "components_components_cluster_types",
+  "info": {
+    "displayName": "Cluster Type",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "types": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::type.type"
+    },
+    "gallery": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "floor_plan": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files"
+      ]
+    },
+    "facilities": {
+      "type": "component",
+      "repeatable": true,
+      "component": "components.facility"
+    },
+    "specification": {
+      "type": "component",
+      "repeatable": true,
+      "component": "components.specification"
+    }
+  }
+}

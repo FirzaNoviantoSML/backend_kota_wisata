@@ -1,0 +1,58 @@
+{
+  "kind": "collectionType",
+  "collectionName": "kw_clusters",
+  "info": {
+    "singularName": "kw-cluster",
+    "pluralName": "kw-clusters",
+    "displayName": "KW_Cluster",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "kw_development": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::kw-development.kw-development",
+      "inversedBy": "kw_clusters"
+    },
+    "label": {
+      "type": "string"
+    },
+    "text": {
+      "type": "string"
+    },
+    "buttons": {
+      "type": "component",
+      "repeatable": true,
+      "component": "components.button"
+    },
+    "logo": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "cluster_type": {
+      "type": "dynamiczone",
+      "components": [
+        "components.cluster-type"
+      ]
+    }
+  }
+}

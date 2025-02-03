@@ -1,0 +1,31 @@
+{
+  "kind": "singleType",
+  "collectionName": "kw_the_cities",
+  "info": {
+    "singularName": "kw-the-city",
+    "pluralName": "kw-the-cities",
+    "displayName": "KW_The_City",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "label": {
+      "type": "string"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "development": {
+      "type": "dynamiczone",
+      "components": []
+    }
+  }
+}

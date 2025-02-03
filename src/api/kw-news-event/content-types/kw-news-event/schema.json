@@ -1,0 +1,21 @@
+{
+  "kind": "collectionType",
+  "collectionName": "kw_news_events",
+  "info": {
+    "singularName": "kw-news-event",
+    "pluralName": "kw-news-events",
+    "displayName": "KW_News_Event"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "content": {
+      "type": "blocks"
+    }
+  }
+}

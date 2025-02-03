@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_components_specifications",
+  "info": {
+    "displayName": "Specification"
+  },
+  "options": {},
+  "attributes": {
+    "label": {
+      "type": "string"
+    },
+    "value": {
+      "type": "string"
+    }
+  }
+}

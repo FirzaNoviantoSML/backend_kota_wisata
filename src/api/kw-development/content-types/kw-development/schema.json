@@ -1,0 +1,33 @@
+{
+  "kind": "collectionType",
+  "collectionName": "kw_developments",
+  "info": {
+    "singularName": "kw-development",
+    "pluralName": "kw-developments",
+    "displayName": "KW_Development",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "nama": {
+      "type": "string"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "kw_clusters": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::kw-cluster.kw-cluster",
+      "mappedBy": "kw_development"
+    }
+  }
+}
