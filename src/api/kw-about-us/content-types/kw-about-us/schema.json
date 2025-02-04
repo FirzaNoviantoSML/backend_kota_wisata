@@ -1,0 +1,31 @@
+{
+  "kind": "singleType",
+  "collectionName": "kw_about_uses",
+  "info": {
+    "singularName": "kw-about-us",
+    "pluralName": "kw-about-uses",
+    "displayName": "KW_About_Us"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "main": {
+      "type": "dynamiczone",
+      "components": [
+        "layout.banner",
+        "layout.second"
+      ]
+    },
+    "map_url": {
+      "type": "string"
+    },
+    "info": {
+      "type": "component",
+      "repeatable": true,
+      "component": "components.specification",
+      "required": false
+    }
+  }
+}

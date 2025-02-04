@@ -434,6 +434,36 @@ export interface ApiHomePageHomePage extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiKwAboutUsKwAboutUs extends Struct.SingleTypeSchema {
+  collectionName: 'kw_about_uses';
+  info: {
+    displayName: 'KW_About_Us';
+    pluralName: 'kw-about-uses';
+    singularName: 'kw-about-us';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    info: Schema.Attribute.Component<'components.specification', true>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::kw-about-us.kw-about-us'
+    > &
+      Schema.Attribute.Private;
+    main: Schema.Attribute.DynamicZone<['layout.banner', 'layout.second']>;
+    map_url: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiKwClusterKwCluster extends Struct.CollectionTypeSchema {
   collectionName: 'kw_clusters';
   info: {
@@ -515,6 +545,37 @@ export interface ApiKwDevelopmentKwDevelopment
   };
 }
 
+export interface ApiKwFacilityKwFacility extends Struct.CollectionTypeSchema {
+  collectionName: 'kw_facilities';
+  info: {
+    displayName: 'KW_Facility';
+    pluralName: 'kw-facilities';
+    singularName: 'kw-facility';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.Text;
+    image: Schema.Attribute.Media<'images', true>;
+    kw_places: Schema.Attribute.Relation<'oneToMany', 'api::kw-place.kw-place'>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::kw-facility.kw-facility'
+    > &
+      Schema.Attribute.Private;
+    name: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiKwHomePageKwHomePage extends Struct.SingleTypeSchema {
   collectionName: 'kw_home_pages';
   info: {
@@ -570,6 +631,40 @@ export interface ApiKwNewsEventKwNewsEvent extends Struct.CollectionTypeSchema {
     rich_text: Schema.Attribute.Blocks;
     rich_text_classic: Schema.Attribute.RichText;
     title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiKwPlaceKwPlace extends Struct.CollectionTypeSchema {
+  collectionName: 'kw_places';
+  info: {
+    displayName: 'KW_Place';
+    pluralName: 'kw-places';
+    singularName: 'kw-place';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.Text;
+    image: Schema.Attribute.Media<'images'>;
+    kw_facility: Schema.Attribute.Relation<
+      'manyToOne',
+      'api::kw-facility.kw-facility'
+    >;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::kw-place.kw-place'
+    > &
+      Schema.Attribute.Private;
+    name: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1208,10 +1303,13 @@ declare module '@strapi/strapi' {
       'admin::user': AdminUser;
       'api::global.global': ApiGlobalGlobal;
       'api::home-page.home-page': ApiHomePageHomePage;
+      'api::kw-about-us.kw-about-us': ApiKwAboutUsKwAboutUs;
       'api::kw-cluster.kw-cluster': ApiKwClusterKwCluster;
       'api::kw-development.kw-development': ApiKwDevelopmentKwDevelopment;
+      'api::kw-facility.kw-facility': ApiKwFacilityKwFacility;
       'api::kw-home-page.kw-home-page': ApiKwHomePageKwHomePage;
       'api::kw-news-event.kw-news-event': ApiKwNewsEventKwNewsEvent;
+      'api::kw-place.kw-place': ApiKwPlaceKwPlace;
       'api::kw-the-city.kw-the-city': ApiKwTheCityKwTheCity;
       'api::specification.specification': ApiSpecificationSpecification;
       'api::summary.summary': ApiSummarySummary;
