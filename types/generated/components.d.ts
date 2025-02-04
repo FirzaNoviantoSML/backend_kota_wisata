@@ -95,7 +95,7 @@ export interface LayoutBanner extends Struct.ComponentSchema {
   collectionName: 'components_layout_banners';
   info: {
     description: '';
-    displayName: 'banner';
+    displayName: 'Banner';
   };
   attributes: {
     button: Schema.Attribute.Component<'components.button', false>;
