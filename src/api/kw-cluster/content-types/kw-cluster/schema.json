@@ -71,6 +71,9 @@
     },
     "e_catalog_link": {
       "type": "string"
+    },
+    "slug": {
+      "type": "string"
     }
   }
 }
