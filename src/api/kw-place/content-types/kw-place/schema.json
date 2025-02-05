@@ -4,19 +4,14 @@
   "info": {
     "singularName": "kw-place",
     "pluralName": "kw-places",
-    "displayName": "KW_Place"
+    "displayName": "KW_Place",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
   },
   "pluginOptions": {},
   "attributes": {
-    "kw_facility": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::kw-facility.kw-facility",
-      "inversedBy": "kw_places"
-    },
     "name": {
       "type": "string"
     },
@@ -24,11 +19,17 @@
       "type": "text"
     },
     "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
+    },
+    "kw_facilities": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::kw-facility.kw-facility"
     }
   }
 }

@@ -4,7 +4,8 @@
   "info": {
     "singularName": "kw-facility",
     "pluralName": "kw-facilities",
-    "displayName": "KW_Facility"
+    "displayName": "KW_Facility",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -18,17 +19,12 @@
       "type": "text"
     },
     "image": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
       "allowedTypes": [
         "images"
-      ],
-      "type": "media",
-      "multiple": true
-    },
-    "kw_places": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::kw-place.kw-place",
-      "mappedBy": "kw_facility"
+      ]
     }
   }
 }
