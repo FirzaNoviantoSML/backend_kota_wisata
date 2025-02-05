@@ -1,0 +1,31 @@
+{
+  "collectionName": "components_layout_seconds",
+  "info": {
+    "displayName": "Second",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "banner": {
+      "type": "component",
+      "repeatable": false,
+      "component": "layout.banner"
+    },
+    "carousel_title": {
+      "type": "string"
+    },
+    "carousel": {
+      "type": "component",
+      "repeatable": true,
+      "component": "components.carousel"
+    },
+    "links_title": {
+      "type": "string"
+    },
+    "links": {
+      "type": "component",
+      "repeatable": true,
+      "component": "components.link"
+    }
+  }
+}

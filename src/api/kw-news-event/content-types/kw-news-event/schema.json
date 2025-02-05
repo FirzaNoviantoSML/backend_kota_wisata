@@ -4,7 +4,8 @@
   "info": {
     "singularName": "kw-news-event",
     "pluralName": "kw-news-events",
-    "displayName": "KW_News_Event"
+    "displayName": "KW_News_Event",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -14,8 +15,18 @@
     "title": {
       "type": "string"
     },
-    "content": {
+    "date_time": {
+      "type": "datetime"
+    },
+    "rich_text": {
       "type": "blocks"
+    },
+    "rich_text_classic": {
+      "type": "richtext"
+    },
+    "isNews": {
+      "type": "boolean",
+      "default": false
     }
   }
 }

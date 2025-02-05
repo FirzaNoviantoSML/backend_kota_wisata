@@ -434,6 +434,66 @@ export interface ApiHomePageHomePage extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiKwAboutUsKwAboutUs extends Struct.SingleTypeSchema {
+  collectionName: 'kw_about_uses';
+  info: {
+    displayName: 'KW_About_Us';
+    pluralName: 'kw-about-uses';
+    singularName: 'kw-about-us';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    info: Schema.Attribute.Component<'components.specification', true>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::kw-about-us.kw-about-us'
+    > &
+      Schema.Attribute.Private;
+    main: Schema.Attribute.DynamicZone<['layout.banner', 'layout.second']>;
+    map_url: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiKwAccessKwAccess extends Struct.CollectionTypeSchema {
+  collectionName: 'kw_accesses';
+  info: {
+    displayName: 'KW_Access';
+    pluralName: 'kw-accesses';
+    singularName: 'kw-access';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    banner: Schema.Attribute.Component<'layout.banner', false>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.Text;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::kw-access.kw-access'
+    > &
+      Schema.Attribute.Private;
+    name: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiKwClusterKwCluster extends Struct.CollectionTypeSchema {
   collectionName: 'kw_clusters';
   info: {
@@ -447,10 +507,13 @@ export interface ApiKwClusterKwCluster extends Struct.CollectionTypeSchema {
   };
   attributes: {
     buttons: Schema.Attribute.Component<'components.button', true>;
+    cluster_code: Schema.Attribute.String;
     cluster_type: Schema.Attribute.DynamicZone<['components.cluster-type']>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    download_link: Schema.Attribute.String;
+    e_catalog_link: Schema.Attribute.String;
     image: Schema.Attribute.Media<'images'>;
     kw_development: Schema.Attribute.Relation<
       'manyToOne',
@@ -464,12 +527,16 @@ export interface ApiKwClusterKwCluster extends Struct.CollectionTypeSchema {
     > &
       Schema.Attribute.Private;
     logo: Schema.Attribute.Media<'images'>;
+    map_url: Schema.Attribute.String;
+    project_code: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
+    slug: Schema.Attribute.String;
     text: Schema.Attribute.String;
     title: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    youtube_url: Schema.Attribute.String;
   };
 }
 
@@ -508,9 +575,70 @@ export interface ApiKwDevelopmentKwDevelopment
   };
 }
 
+export interface ApiKwFacilityKwFacility extends Struct.CollectionTypeSchema {
+  collectionName: 'kw_facilities';
+  info: {
+    description: '';
+    displayName: 'KW_Facility';
+    pluralName: 'kw-facilities';
+    singularName: 'kw-facility';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.Text;
+    image: Schema.Attribute.Media<'images', true>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::kw-facility.kw-facility'
+    > &
+      Schema.Attribute.Private;
+    name: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiKwHomePageKwHomePage extends Struct.SingleTypeSchema {
+  collectionName: 'kw_home_pages';
+  info: {
+    description: '';
+    displayName: 'KW_Home_Page';
+    pluralName: 'kw-home-pages';
+    singularName: 'kw-home-page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::kw-home-page.kw-home-page'
+    > &
+      Schema.Attribute.Private;
+    main: Schema.Attribute.DynamicZone<['layout.banner', 'layout.second']>;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiKwNewsEventKwNewsEvent extends Struct.CollectionTypeSchema {
   collectionName: 'kw_news_events';
   info: {
+    description: '';
     displayName: 'KW_News_Event';
     pluralName: 'kw-news-events';
     singularName: 'kw-news-event';
@@ -519,10 +647,11 @@ export interface ApiKwNewsEventKwNewsEvent extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
-    content: Schema.Attribute.Blocks;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    date_time: Schema.Attribute.DateTime;
+    isNews: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -530,7 +659,44 @@ export interface ApiKwNewsEventKwNewsEvent extends Struct.CollectionTypeSchema {
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
+    rich_text: Schema.Attribute.Blocks;
+    rich_text_classic: Schema.Attribute.RichText;
     title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiKwPlaceKwPlace extends Struct.CollectionTypeSchema {
+  collectionName: 'kw_places';
+  info: {
+    description: '';
+    displayName: 'KW_Place';
+    pluralName: 'kw-places';
+    singularName: 'kw-place';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.Text;
+    image: Schema.Attribute.Media<'images'>;
+    kw_facilities: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::kw-facility.kw-facility'
+    >;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::kw-place.kw-place'
+    > &
+      Schema.Attribute.Private;
+    name: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1169,9 +1335,14 @@ declare module '@strapi/strapi' {
       'admin::user': AdminUser;
       'api::global.global': ApiGlobalGlobal;
       'api::home-page.home-page': ApiHomePageHomePage;
+      'api::kw-about-us.kw-about-us': ApiKwAboutUsKwAboutUs;
+      'api::kw-access.kw-access': ApiKwAccessKwAccess;
       'api::kw-cluster.kw-cluster': ApiKwClusterKwCluster;
       'api::kw-development.kw-development': ApiKwDevelopmentKwDevelopment;
+      'api::kw-facility.kw-facility': ApiKwFacilityKwFacility;
+      'api::kw-home-page.kw-home-page': ApiKwHomePageKwHomePage;
       'api::kw-news-event.kw-news-event': ApiKwNewsEventKwNewsEvent;
+      'api::kw-place.kw-place': ApiKwPlaceKwPlace;
       'api::kw-the-city.kw-the-city': ApiKwTheCityKwTheCity;
       'api::specification.specification': ApiSpecificationSpecification;
       'api::summary.summary': ApiSummarySummary;

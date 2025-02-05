@@ -11,6 +11,20 @@ export interface ComponentsButton extends Struct.ComponentSchema {
   };
 }
 
+export interface ComponentsCarousel extends Struct.ComponentSchema {
+  collectionName: 'components_components_carousels';
+  info: {
+    description: '';
+    displayName: 'Carousel';
+  };
+  attributes: {
+    button: Schema.Attribute.Component<'components.button', false>;
+    description: Schema.Attribute.Text;
+    image: Schema.Attribute.Media<'images', true>;
+    title: Schema.Attribute.String;
+  };
+}
+
 export interface ComponentsClusterType extends Struct.ComponentSchema {
   collectionName: 'components_components_cluster_types';
   info: {
@@ -77,6 +91,21 @@ export interface ComponentsSpecification extends Struct.ComponentSchema {
   };
 }
 
+export interface LayoutBanner extends Struct.ComponentSchema {
+  collectionName: 'components_layout_banners';
+  info: {
+    description: '';
+    displayName: 'Banner';
+  };
+  attributes: {
+    button: Schema.Attribute.Component<'components.button', false>;
+    description: Schema.Attribute.Text;
+    image: Schema.Attribute.Media<'images'>;
+    text_color: Schema.Attribute.String;
+    title: Schema.Attribute.String;
+  };
+}
+
 export interface LayoutFeaturesSection extends Struct.ComponentSchema {
   collectionName: 'components_layout_features_sections';
   info: {
@@ -126,19 +155,37 @@ export interface LayoutHeroSection extends Struct.ComponentSchema {
   };
 }
 
+export interface LayoutSecond extends Struct.ComponentSchema {
+  collectionName: 'components_layout_seconds';
+  info: {
+    description: '';
+    displayName: 'Second';
+  };
+  attributes: {
+    banner: Schema.Attribute.Component<'layout.banner', false>;
+    carousel: Schema.Attribute.Component<'components.carousel', true>;
+    carousel_title: Schema.Attribute.String;
+    links: Schema.Attribute.Component<'components.link', true>;
+    links_title: Schema.Attribute.String;
+  };
+}
+
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
       'components.button': ComponentsButton;
+      'components.carousel': ComponentsCarousel;
       'components.cluster-type': ComponentsClusterType;
       'components.facility': ComponentsFacility;
       'components.feature': ComponentsFeature;
       'components.link': ComponentsLink;
       'components.specification': ComponentsSpecification;
+      'layout.banner': LayoutBanner;
       'layout.features-section': LayoutFeaturesSection;
       'layout.footer': LayoutFooter;
       'layout.header': LayoutHeader;
       'layout.hero-section': LayoutHeroSection;
+      'layout.second': LayoutSecond;
     }
   }
 }
