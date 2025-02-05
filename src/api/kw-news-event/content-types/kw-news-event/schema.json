@@ -23,6 +23,10 @@
     },
     "rich_text_classic": {
       "type": "richtext"
+    },
+    "isNews": {
+      "type": "boolean",
+      "default": false
     }
   }
 }

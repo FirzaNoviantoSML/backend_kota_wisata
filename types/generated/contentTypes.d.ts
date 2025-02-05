@@ -464,6 +464,36 @@ export interface ApiKwAboutUsKwAboutUs extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiKwAccessKwAccess extends Struct.CollectionTypeSchema {
+  collectionName: 'kw_accesses';
+  info: {
+    displayName: 'KW_Access';
+    pluralName: 'kw-accesses';
+    singularName: 'kw-access';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    banner: Schema.Attribute.Component<'layout.banner', false>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.Text;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::kw-access.kw-access'
+    > &
+      Schema.Attribute.Private;
+    name: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiKwClusterKwCluster extends Struct.CollectionTypeSchema {
   collectionName: 'kw_clusters';
   info: {
@@ -621,6 +651,7 @@ export interface ApiKwNewsEventKwNewsEvent extends Struct.CollectionTypeSchema {
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     date_time: Schema.Attribute.DateTime;
+    isNews: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -1305,6 +1336,7 @@ declare module '@strapi/strapi' {
       'api::global.global': ApiGlobalGlobal;
       'api::home-page.home-page': ApiHomePageHomePage;
       'api::kw-about-us.kw-about-us': ApiKwAboutUsKwAboutUs;
+      'api::kw-access.kw-access': ApiKwAccessKwAccess;
       'api::kw-cluster.kw-cluster': ApiKwClusterKwCluster;
       'api::kw-development.kw-development': ApiKwDevelopmentKwDevelopment;
       'api::kw-facility.kw-facility': ApiKwFacilityKwFacility;
