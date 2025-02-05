@@ -548,6 +548,7 @@ export interface ApiKwDevelopmentKwDevelopment
 export interface ApiKwFacilityKwFacility extends Struct.CollectionTypeSchema {
   collectionName: 'kw_facilities';
   info: {
+    description: '';
     displayName: 'KW_Facility';
     pluralName: 'kw-facilities';
     singularName: 'kw-facility';
@@ -561,7 +562,6 @@ export interface ApiKwFacilityKwFacility extends Struct.CollectionTypeSchema {
       Schema.Attribute.Private;
     description: Schema.Attribute.Text;
     image: Schema.Attribute.Media<'images', true>;
-    kw_places: Schema.Attribute.Relation<'oneToMany', 'api::kw-place.kw-place'>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -640,6 +640,7 @@ export interface ApiKwNewsEventKwNewsEvent extends Struct.CollectionTypeSchema {
 export interface ApiKwPlaceKwPlace extends Struct.CollectionTypeSchema {
   collectionName: 'kw_places';
   info: {
+    description: '';
     displayName: 'KW_Place';
     pluralName: 'kw-places';
     singularName: 'kw-place';
@@ -653,8 +654,8 @@ export interface ApiKwPlaceKwPlace extends Struct.CollectionTypeSchema {
       Schema.Attribute.Private;
     description: Schema.Attribute.Text;
     image: Schema.Attribute.Media<'images'>;
-    kw_facility: Schema.Attribute.Relation<
-      'manyToOne',
+    kw_facilities: Schema.Attribute.Relation<
+      'oneToMany',
       'api::kw-facility.kw-facility'
     >;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
