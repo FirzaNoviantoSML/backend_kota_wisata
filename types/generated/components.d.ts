@@ -20,7 +20,7 @@ export interface ComponentsCarousel extends Struct.ComponentSchema {
   attributes: {
     button: Schema.Attribute.Component<'components.button', false>;
     description: Schema.Attribute.Text;
-    image: Schema.Attribute.Media<'images', true>;
+    image: Schema.Attribute.Media<'images'>;
     title: Schema.Attribute.String;
   };
 }
