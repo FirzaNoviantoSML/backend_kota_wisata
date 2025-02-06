@@ -83,9 +83,11 @@ export interface ComponentsLink extends Struct.ComponentSchema {
 export interface ComponentsSpecification extends Struct.ComponentSchema {
   collectionName: 'components_components_specifications';
   info: {
+    description: '';
     displayName: 'Specification';
   };
   attributes: {
+    description: Schema.Attribute.Text;
     label: Schema.Attribute.String;
     value: Schema.Attribute.String;
   };
@@ -159,7 +161,7 @@ export interface LayoutSecond extends Struct.ComponentSchema {
   collectionName: 'components_layout_seconds';
   info: {
     description: '';
-    displayName: 'Second';
+    displayName: 'Main Content';
   };
   attributes: {
     banner: Schema.Attribute.Component<'layout.banner', false>;
