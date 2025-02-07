@@ -13,20 +13,31 @@
   "pluginOptions": {},
   "attributes": {
     "title": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "date_time": {
       "type": "datetime"
     },
     "rich_text": {
-      "type": "blocks"
-    },
-    "rich_text_classic": {
-      "type": "richtext"
+      "type": "blocks",
+      "required": true
     },
     "isNews": {
       "type": "boolean",
       "default": false
+    },
+    "slug": {
+      "type": "string",
+      "required": true
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
     }
   }
 }

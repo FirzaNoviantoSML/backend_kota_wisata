@@ -437,6 +437,7 @@ export interface ApiHomePageHomePage extends Struct.SingleTypeSchema {
 export interface ApiKwAboutUsKwAboutUs extends Struct.SingleTypeSchema {
   collectionName: 'kw_about_uses';
   info: {
+    description: '';
     displayName: 'KW_About_Us';
     pluralName: 'kw-about-uses';
     singularName: 'kw-about-us';
@@ -445,22 +446,35 @@ export interface ApiKwAboutUsKwAboutUs extends Struct.SingleTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
+    banner_image: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    description: Schema.Attribute.Text & Schema.Attribute.Required;
+    description_image: Schema.Attribute.Text;
     info: Schema.Attribute.Component<'components.specification', true>;
+    link: Schema.Attribute.Component<'components.link', false>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::kw-about-us.kw-about-us'
     > &
       Schema.Attribute.Private;
-    main: Schema.Attribute.DynamicZone<['layout.banner', 'layout.second']>;
-    map_url: Schema.Attribute.String;
+    main: Schema.Attribute.DynamicZone<['layout.second']> &
+      Schema.Attribute.SetMinMax<
+        {
+          max: 1;
+        },
+        number
+      >;
+    map_url: Schema.Attribute.String & Schema.Attribute.Required;
     publishedAt: Schema.Attribute.DateTime;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+    title_image: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    youtube_url: Schema.Attribute.Component<'components.link', false>;
   };
 }
 
@@ -530,9 +544,9 @@ export interface ApiKwClusterKwCluster extends Struct.CollectionTypeSchema {
     map_url: Schema.Attribute.String;
     project_code: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
-    slug: Schema.Attribute.String;
+    slug: Schema.Attribute.String & Schema.Attribute.Required;
     text: Schema.Attribute.String;
-    title: Schema.Attribute.String;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -651,6 +665,7 @@ export interface ApiKwNewsEventKwNewsEvent extends Struct.CollectionTypeSchema {
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     date_time: Schema.Attribute.DateTime;
+    image: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
     isNews: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
@@ -659,9 +674,9 @@ export interface ApiKwNewsEventKwNewsEvent extends Struct.CollectionTypeSchema {
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
-    rich_text: Schema.Attribute.Blocks;
-    rich_text_classic: Schema.Attribute.RichText;
-    title: Schema.Attribute.String;
+    rich_text: Schema.Attribute.Blocks & Schema.Attribute.Required;
+    slug: Schema.Attribute.String & Schema.Attribute.Required;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
