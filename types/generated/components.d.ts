@@ -71,12 +71,13 @@ export interface ComponentsFeature extends Struct.ComponentSchema {
 export interface ComponentsLink extends Struct.ComponentSchema {
   collectionName: 'components_components_links';
   info: {
+    description: '';
     displayName: 'Link';
   };
   attributes: {
-    isExternal: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
-    text: Schema.Attribute.String;
-    url: Schema.Attribute.String;
+    isExternal: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
+    text: Schema.Attribute.String & Schema.Attribute.Required;
+    url: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
 
@@ -87,9 +88,9 @@ export interface ComponentsSpecification extends Struct.ComponentSchema {
     displayName: 'Specification';
   };
   attributes: {
-    description: Schema.Attribute.Text;
+    description: Schema.Attribute.Text & Schema.Attribute.Required;
     label: Schema.Attribute.String;
-    value: Schema.Attribute.String;
+    value: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
 
@@ -104,7 +105,7 @@ export interface LayoutBanner extends Struct.ComponentSchema {
     description: Schema.Attribute.Text;
     image: Schema.Attribute.Media<'images'>;
     text_color: Schema.Attribute.String;
-    title: Schema.Attribute.String;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
 
