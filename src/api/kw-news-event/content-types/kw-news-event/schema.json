@@ -13,13 +13,15 @@
   "pluginOptions": {},
   "attributes": {
     "title": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "date_time": {
       "type": "datetime"
     },
     "rich_text": {
-      "type": "blocks"
+      "type": "blocks",
+      "required": true
     },
     "isNews": {
       "type": "boolean",
@@ -30,12 +32,12 @@
       "required": true
     },
     "image": {
-      "allowedTypes": [
-        "images"
-      ],
       "type": "media",
       "multiple": false,
-      "required": true
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
     }
   }
 }
