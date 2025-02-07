@@ -446,19 +446,31 @@ export interface ApiKwAboutUsKwAboutUs extends Struct.SingleTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
+    banner_image: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    description: Schema.Attribute.Text & Schema.Attribute.Required;
+    description_image: Schema.Attribute.Text;
     info: Schema.Attribute.Component<'components.specification', true>;
+    link: Schema.Attribute.Component<'components.link', false>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::kw-about-us.kw-about-us'
     > &
       Schema.Attribute.Private;
-    main: Schema.Attribute.DynamicZone<['layout.banner', 'layout.second']>;
+    main: Schema.Attribute.DynamicZone<['layout.second']> &
+      Schema.Attribute.SetMinMax<
+        {
+          max: 1;
+        },
+        number
+      >;
     map_url: Schema.Attribute.String & Schema.Attribute.Required;
     publishedAt: Schema.Attribute.DateTime;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+    title_image: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;

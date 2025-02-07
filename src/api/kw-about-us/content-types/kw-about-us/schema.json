@@ -15,9 +15,9 @@
     "main": {
       "type": "dynamiczone",
       "components": [
-        "layout.banner",
         "layout.second"
-      ]
+      ],
+      "max": 1
     },
     "map_url": {
       "type": "string",
@@ -33,6 +33,34 @@
       "type": "component",
       "repeatable": false,
       "component": "components.link"
+    },
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text",
+      "required": true
+    },
+    "banner_image": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    },
+    "link": {
+      "type": "component",
+      "repeatable": false,
+      "component": "components.link",
+      "required": false
+    },
+    "title_image": {
+      "type": "string"
+    },
+    "description_image": {
+      "type": "text"
     }
   }
 }
