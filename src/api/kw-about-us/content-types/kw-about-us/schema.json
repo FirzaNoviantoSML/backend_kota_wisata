@@ -4,7 +4,8 @@
   "info": {
     "singularName": "kw-about-us",
     "pluralName": "kw-about-uses",
-    "displayName": "KW_About_Us"
+    "displayName": "KW_About_Us",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -19,13 +20,19 @@
       ]
     },
     "map_url": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "info": {
       "type": "component",
       "repeatable": true,
       "component": "components.specification",
       "required": false
+    },
+    "youtube_url": {
+      "type": "component",
+      "repeatable": false,
+      "component": "components.link"
     }
   }
 }
