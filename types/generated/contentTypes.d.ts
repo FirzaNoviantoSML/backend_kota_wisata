@@ -437,6 +437,7 @@ export interface ApiHomePageHomePage extends Struct.SingleTypeSchema {
 export interface ApiKwAboutUsKwAboutUs extends Struct.SingleTypeSchema {
   collectionName: 'kw_about_uses';
   info: {
+    description: '';
     displayName: 'KW_About_Us';
     pluralName: 'kw-about-uses';
     singularName: 'kw-about-us';
@@ -456,11 +457,12 @@ export interface ApiKwAboutUsKwAboutUs extends Struct.SingleTypeSchema {
     > &
       Schema.Attribute.Private;
     main: Schema.Attribute.DynamicZone<['layout.banner', 'layout.second']>;
-    map_url: Schema.Attribute.String;
+    map_url: Schema.Attribute.String & Schema.Attribute.Required;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    youtube_url: Schema.Attribute.Component<'components.link', false>;
   };
 }
 
@@ -651,6 +653,7 @@ export interface ApiKwNewsEventKwNewsEvent extends Struct.CollectionTypeSchema {
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     date_time: Schema.Attribute.DateTime;
+    image: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
     isNews: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
@@ -660,6 +663,7 @@ export interface ApiKwNewsEventKwNewsEvent extends Struct.CollectionTypeSchema {
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
     rich_text: Schema.Attribute.Blocks;
+    slug: Schema.Attribute.String & Schema.Attribute.Required;
     title: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
