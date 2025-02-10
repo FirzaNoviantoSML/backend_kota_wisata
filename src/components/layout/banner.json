@@ -28,17 +28,6 @@
     },
     "text_color": {
       "type": "string"
-    },
-    "thumbnail": {
-      "type": "media",
-      "multiple": false,
-      "required": true,
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ]
     }
   }
 }
