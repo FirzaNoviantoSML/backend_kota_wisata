@@ -4,7 +4,8 @@
   "info": {
     "singularName": "kw-access",
     "pluralName": "kw-accesses",
-    "displayName": "KW_Access"
+    "displayName": "KW_Access",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
