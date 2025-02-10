@@ -24,14 +24,25 @@
       "component": "layout.banner"
     },
     "thumbnail": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": false,
+      ]
+    },
+    "button": {
+      "displayName": "btn",
+      "type": "component",
+      "repeatable": false,
+      "component": "components.btn",
+      "required": true
+    },
+    "slug": {
+      "type": "string",
       "required": true
     }
   }

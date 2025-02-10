@@ -520,6 +520,8 @@ export interface ApiKwAccessKwAccess extends Struct.CollectionTypeSchema {
   };
   attributes: {
     banner: Schema.Attribute.Component<'layout.banner', false>;
+    button: Schema.Attribute.Component<'components.btn', false> &
+      Schema.Attribute.Required;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -532,6 +534,7 @@ export interface ApiKwAccessKwAccess extends Struct.CollectionTypeSchema {
       Schema.Attribute.Private;
     name: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
+    slug: Schema.Attribute.String & Schema.Attribute.Required;
     thumbnail: Schema.Attribute.Media<
       'images' | 'files' | 'videos' | 'audios'
     > &
