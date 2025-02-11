@@ -1,5 +1,17 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
+export interface ComponentsBtn extends Struct.ComponentSchema {
+  collectionName: 'components_components_btns';
+  info: {
+    description: '';
+    displayName: 'btn';
+  };
+  attributes: {
+    text: Schema.Attribute.String;
+    url: Schema.Attribute.String;
+  };
+}
+
 export interface ComponentsButton extends Struct.ComponentSchema {
   collectionName: 'components_components_buttons';
   info: {
@@ -101,7 +113,6 @@ export interface LayoutBanner extends Struct.ComponentSchema {
     displayName: 'Banner';
   };
   attributes: {
-    button: Schema.Attribute.Component<'components.button', false>;
     description: Schema.Attribute.Text;
     image: Schema.Attribute.Media<'images'>;
     text_color: Schema.Attribute.String;
@@ -176,6 +187,7 @@ export interface LayoutSecond extends Struct.ComponentSchema {
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
+      'components.btn': ComponentsBtn;
       'components.button': ComponentsButton;
       'components.carousel': ComponentsCarousel;
       'components.cluster-type': ComponentsClusterType;

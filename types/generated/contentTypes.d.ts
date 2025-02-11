@@ -478,9 +478,39 @@ export interface ApiKwAboutUsKwAboutUs extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiKwAccessPageKwAccessPage extends Struct.SingleTypeSchema {
+  collectionName: 'kw_access_pages';
+  info: {
+    displayName: 'KW_Access_Page';
+    pluralName: 'kw-access-pages';
+    singularName: 'kw-access-page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.Text & Schema.Attribute.Required;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::kw-access-page.kw-access-page'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiKwAccessKwAccess extends Struct.CollectionTypeSchema {
   collectionName: 'kw_accesses';
   info: {
+    description: '';
     displayName: 'KW_Access';
     pluralName: 'kw-accesses';
     singularName: 'kw-access';
@@ -490,6 +520,8 @@ export interface ApiKwAccessKwAccess extends Struct.CollectionTypeSchema {
   };
   attributes: {
     banner: Schema.Attribute.Component<'layout.banner', false>;
+    button: Schema.Attribute.Component<'components.btn', false> &
+      Schema.Attribute.Required;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -502,6 +534,11 @@ export interface ApiKwAccessKwAccess extends Struct.CollectionTypeSchema {
       Schema.Attribute.Private;
     name: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
+    slug: Schema.Attribute.String & Schema.Attribute.Required;
+    thumbnail: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    > &
+      Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1352,6 +1389,7 @@ declare module '@strapi/strapi' {
       'api::global.global': ApiGlobalGlobal;
       'api::home-page.home-page': ApiHomePageHomePage;
       'api::kw-about-us.kw-about-us': ApiKwAboutUsKwAboutUs;
+      'api::kw-access-page.kw-access-page': ApiKwAccessPageKwAccessPage;
       'api::kw-access.kw-access': ApiKwAccessKwAccess;
       'api::kw-cluster.kw-cluster': ApiKwClusterKwCluster;
       'api::kw-development.kw-development': ApiKwDevelopmentKwDevelopment;
