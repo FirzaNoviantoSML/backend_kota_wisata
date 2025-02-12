@@ -610,6 +610,7 @@ export interface ApiKwDevelopmentKwDevelopment
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    description: Schema.Attribute.String;
     image: Schema.Attribute.Media<'images'>;
     kw_clusters: Schema.Attribute.Relation<
       'oneToMany',
@@ -623,6 +624,7 @@ export interface ApiKwDevelopmentKwDevelopment
       Schema.Attribute.Private;
     nama: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
