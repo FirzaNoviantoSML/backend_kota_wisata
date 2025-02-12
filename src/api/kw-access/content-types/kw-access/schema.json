@@ -21,7 +21,8 @@
     "banner": {
       "type": "component",
       "repeatable": false,
-      "component": "layout.banner"
+      "component": "layout.banner",
+      "required": true
     },
     "thumbnail": {
       "type": "media",

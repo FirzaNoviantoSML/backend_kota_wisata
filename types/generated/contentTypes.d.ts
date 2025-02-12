@@ -381,6 +381,8 @@ export interface ApiGlobalGlobal extends Struct.SingleTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
+    banner: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'> &
+      Schema.Attribute.Required;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -519,7 +521,8 @@ export interface ApiKwAccessKwAccess extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
-    banner: Schema.Attribute.Component<'layout.banner', false>;
+    banner: Schema.Attribute.Component<'layout.banner', false> &
+      Schema.Attribute.Required;
     button: Schema.Attribute.Component<'components.btn', false> &
       Schema.Attribute.Required;
     createdAt: Schema.Attribute.DateTime;
