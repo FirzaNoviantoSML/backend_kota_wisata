@@ -587,6 +587,7 @@ export interface ApiKwClusterKwCluster extends Struct.CollectionTypeSchema {
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    virtual_link: Schema.Attribute.Component<'components.virtual-link', true>;
     youtube_url: Schema.Attribute.String;
   };
 }

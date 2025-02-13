@@ -100,9 +100,24 @@ export interface ComponentsSpecification extends Struct.ComponentSchema {
     displayName: 'Specification';
   };
   attributes: {
-    description: Schema.Attribute.Text & Schema.Attribute.Required;
+    description: Schema.Attribute.Text;
     label: Schema.Attribute.String;
     value: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface ComponentsVirtualLink extends Struct.ComponentSchema {
+  collectionName: 'components_components_virtual_links';
+  info: {
+    displayName: 'virtual_link';
+  };
+  attributes: {
+    label: Schema.Attribute.String & Schema.Attribute.Required;
+    link: Schema.Attribute.String & Schema.Attribute.Required;
+    thumbnail: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    > &
+      Schema.Attribute.Required;
   };
 }
 
@@ -184,6 +199,19 @@ export interface LayoutSecond extends Struct.ComponentSchema {
   };
 }
 
+export interface LayoutVirtualLink extends Struct.ComponentSchema {
+  collectionName: 'components_layout_virtual_links';
+  info: {
+    description: '';
+    displayName: 'virtual_link';
+  };
+  attributes: {
+    label: Schema.Attribute.String;
+    link: Schema.Attribute.String;
+    thumbnail: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+  };
+}
+
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
@@ -195,12 +223,14 @@ declare module '@strapi/strapi' {
       'components.feature': ComponentsFeature;
       'components.link': ComponentsLink;
       'components.specification': ComponentsSpecification;
+      'components.virtual-link': ComponentsVirtualLink;
       'layout.banner': LayoutBanner;
       'layout.features-section': LayoutFeaturesSection;
       'layout.footer': LayoutFooter;
       'layout.header': LayoutHeader;
       'layout.hero-section': LayoutHeroSection;
       'layout.second': LayoutSecond;
+      'layout.virtual-link': LayoutVirtualLink;
     }
   }
 }

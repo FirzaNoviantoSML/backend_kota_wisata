@@ -76,6 +76,12 @@
     "slug": {
       "type": "string",
       "required": true
+    },
+    "virtual_link": {
+      "displayName": "virtual_link",
+      "type": "component",
+      "repeatable": true,
+      "component": "components.virtual-link"
     }
   }
 }
