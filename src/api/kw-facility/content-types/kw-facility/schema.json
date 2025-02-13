@@ -28,6 +28,12 @@
     },
     "slug": {
       "type": "string"
+    },
+    "kw_places": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::kw-place.kw-place",
+      "mappedBy": "kw_facility"
     }
   }
 }

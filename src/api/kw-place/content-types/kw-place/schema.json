@@ -26,10 +26,11 @@
         "images"
       ]
     },
-    "kw_facilities": {
+    "kw_facility": {
       "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::kw-facility.kw-facility"
+      "relation": "manyToOne",
+      "target": "api::kw-facility.kw-facility",
+      "inversedBy": "kw_places"
     }
   }
 }

@@ -648,6 +648,7 @@ export interface ApiKwFacilityKwFacility extends Struct.CollectionTypeSchema {
       Schema.Attribute.Private;
     description: Schema.Attribute.Text;
     image: Schema.Attribute.Media<'images', true>;
+    kw_places: Schema.Attribute.Relation<'oneToMany', 'api::kw-place.kw-place'>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -743,8 +744,8 @@ export interface ApiKwPlaceKwPlace extends Struct.CollectionTypeSchema {
       Schema.Attribute.Private;
     description: Schema.Attribute.Text;
     image: Schema.Attribute.Media<'images'>;
-    kw_facilities: Schema.Attribute.Relation<
-      'oneToMany',
+    kw_facility: Schema.Attribute.Relation<
+      'manyToOne',
       'api::kw-facility.kw-facility'
     >;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
