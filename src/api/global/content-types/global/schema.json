@@ -29,6 +29,17 @@
       "type": "component",
       "repeatable": false,
       "component": "layout.footer"
+    },
+    "banner": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
     }
   }
 }
