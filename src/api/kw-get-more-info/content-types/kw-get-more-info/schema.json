@@ -1,0 +1,30 @@
+{
+  "kind": "collectionType",
+  "collectionName": "kw_get_more_infos",
+  "info": {
+    "singularName": "kw-get-more-info",
+    "pluralName": "kw-get-more-infos",
+    "displayName": "KW_Get_More_Info"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "email": {
+      "type": "string"
+    },
+    "phone": {
+      "type": "string"
+    },
+    "project_code": {
+      "type": "string"
+    },
+    "mail_to": {
+      "type": "string"
+    }
+  }
+}

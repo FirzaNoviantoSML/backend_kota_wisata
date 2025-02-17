@@ -82,6 +82,9 @@
       "type": "component",
       "repeatable": true,
       "component": "components.virtual-link"
+    },
+    "keyword": {
+      "type": "string"
     }
   }
 }
