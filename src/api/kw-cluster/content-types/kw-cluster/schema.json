@@ -85,6 +85,11 @@
     },
     "keyword": {
       "type": "string"
+    },
+    "text_list": {
+      "type": "component",
+      "repeatable": true,
+      "component": "components.text-list"
     }
   }
 }
