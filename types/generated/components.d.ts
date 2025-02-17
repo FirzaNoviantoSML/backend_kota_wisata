@@ -106,6 +106,16 @@ export interface ComponentsSpecification extends Struct.ComponentSchema {
   };
 }
 
+export interface ComponentsTextList extends Struct.ComponentSchema {
+  collectionName: 'components_components_text_lists';
+  info: {
+    displayName: 'Text List';
+  };
+  attributes: {
+    value: Schema.Attribute.String;
+  };
+}
+
 export interface ComponentsVirtualLink extends Struct.ComponentSchema {
   collectionName: 'components_components_virtual_links';
   info: {
@@ -224,6 +234,7 @@ declare module '@strapi/strapi' {
       'components.feature': ComponentsFeature;
       'components.link': ComponentsLink;
       'components.specification': ComponentsSpecification;
+      'components.text-list': ComponentsTextList;
       'components.virtual-link': ComponentsVirtualLink;
       'layout.banner': LayoutBanner;
       'layout.features-section': LayoutFeaturesSection;
