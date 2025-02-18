@@ -1,0 +1,28 @@
+{
+  "kind": "collectionType",
+  "collectionName": "kw_promotions",
+  "info": {
+    "singularName": "kw-promotion",
+    "pluralName": "kw-promotions",
+    "displayName": "KW_Promotion"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "promotion": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "link": {
+      "type": "string"
+    }
+  }
+}

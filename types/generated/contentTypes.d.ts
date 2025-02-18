@@ -830,6 +830,35 @@ export interface ApiKwPlaceKwPlace extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiKwPromotionKwPromotion extends Struct.CollectionTypeSchema {
+  collectionName: 'kw_promotions';
+  info: {
+    displayName: 'KW_Promotion';
+    pluralName: 'kw-promotions';
+    singularName: 'kw-promotion';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    link: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::kw-promotion.kw-promotion'
+    > &
+      Schema.Attribute.Private;
+    promotion: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiKwTheCityKwTheCity extends Struct.SingleTypeSchema {
   collectionName: 'kw_the_cities';
   info: {
@@ -1473,6 +1502,7 @@ declare module '@strapi/strapi' {
       'api::kw-home-page.kw-home-page': ApiKwHomePageKwHomePage;
       'api::kw-news-event.kw-news-event': ApiKwNewsEventKwNewsEvent;
       'api::kw-place.kw-place': ApiKwPlaceKwPlace;
+      'api::kw-promotion.kw-promotion': ApiKwPromotionKwPromotion;
       'api::kw-the-city.kw-the-city': ApiKwTheCityKwTheCity;
       'api::specification.specification': ApiSpecificationSpecification;
       'api::summary.summary': ApiSummarySummary;
