@@ -396,6 +396,7 @@ export interface ApiGlobalGlobal extends Struct.SingleTypeSchema {
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
+    text_list: Schema.Attribute.Component<'components.text-list', true>;
     title: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -659,6 +660,7 @@ export interface ApiKwDevelopmentKwDevelopment
       Schema.Attribute.Private;
     nama: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
+    text_list: Schema.Attribute.Component<'components.text-list', true>;
     title: Schema.Attribute.String & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
