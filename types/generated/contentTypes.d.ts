@@ -834,6 +834,7 @@ export interface ApiKwPlaceKwPlace extends Struct.CollectionTypeSchema {
 export interface ApiKwPromotionKwPromotion extends Struct.CollectionTypeSchema {
   collectionName: 'kw_promotions';
   info: {
+    description: '';
     displayName: 'KW_Promotion';
     pluralName: 'kw-promotions';
     singularName: 'kw-promotion';
@@ -845,7 +846,6 @@ export interface ApiKwPromotionKwPromotion extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    link: Schema.Attribute.String;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
