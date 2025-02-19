@@ -35,6 +35,11 @@
     "title": {
       "type": "string",
       "required": true
+    },
+    "text_list": {
+      "type": "component",
+      "repeatable": true,
+      "component": "components.text-list"
     }
   }
 }

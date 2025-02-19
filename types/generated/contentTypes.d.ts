@@ -396,6 +396,7 @@ export interface ApiGlobalGlobal extends Struct.SingleTypeSchema {
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
+    text_list: Schema.Attribute.Component<'components.text-list', true>;
     title: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -569,7 +570,6 @@ export interface ApiKwClusterKwCluster extends Struct.CollectionTypeSchema {
     download_link: Schema.Attribute.String;
     e_catalog_link: Schema.Attribute.String;
     image: Schema.Attribute.Media<'images'>;
-    keyword: Schema.Attribute.String;
     kw_development: Schema.Attribute.Relation<
       'manyToOne',
       'api::kw-development.kw-development'
@@ -659,6 +659,7 @@ export interface ApiKwDevelopmentKwDevelopment
       Schema.Attribute.Private;
     nama: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
+    text_list: Schema.Attribute.Component<'components.text-list', true>;
     title: Schema.Attribute.String & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
