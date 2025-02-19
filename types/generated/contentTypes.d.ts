@@ -569,7 +569,6 @@ export interface ApiKwClusterKwCluster extends Struct.CollectionTypeSchema {
     download_link: Schema.Attribute.String;
     e_catalog_link: Schema.Attribute.String;
     image: Schema.Attribute.Media<'images'>;
-    keyword: Schema.Attribute.String;
     kw_development: Schema.Attribute.Relation<
       'manyToOne',
       'api::kw-development.kw-development'
