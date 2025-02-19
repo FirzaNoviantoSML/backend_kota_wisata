@@ -811,7 +811,9 @@ export interface ApiKwNewsEventKwNewsEvent extends Struct.CollectionTypeSchema {
       Schema.Attribute.Private;
     date_time: Schema.Attribute.DateTime;
     image: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
-    isNews: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    isNews: Schema.Attribute.Enumeration<['Media', 'News']> &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'Media'>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -821,6 +823,7 @@ export interface ApiKwNewsEventKwNewsEvent extends Struct.CollectionTypeSchema {
     publishedAt: Schema.Attribute.DateTime;
     rich_text: Schema.Attribute.Blocks & Schema.Attribute.Required;
     slug: Schema.Attribute.String & Schema.Attribute.Required;
+    text_list: Schema.Attribute.Component<'components.text-list', true>;
     title: Schema.Attribute.String & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
