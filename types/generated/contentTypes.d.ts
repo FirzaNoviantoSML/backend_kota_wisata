@@ -597,6 +597,38 @@ export interface ApiKwClusterKwCluster extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiKwContactUsPageKwContactUsPage
+  extends Struct.SingleTypeSchema {
+  collectionName: 'kw_contact_us_pages';
+  info: {
+    description: '';
+    displayName: 'KW_Contact_Us_Page';
+    pluralName: 'kw-contact-us-pages';
+    singularName: 'kw-contact-us-page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    banner: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::kw-contact-us-page.kw-contact-us-page'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiKwContactUsKwContactUs extends Struct.CollectionTypeSchema {
   collectionName: 'kw_contact_uses';
   info: {
@@ -1496,6 +1528,7 @@ declare module '@strapi/strapi' {
       'api::kw-access-page.kw-access-page': ApiKwAccessPageKwAccessPage;
       'api::kw-access.kw-access': ApiKwAccessKwAccess;
       'api::kw-cluster.kw-cluster': ApiKwClusterKwCluster;
+      'api::kw-contact-us-page.kw-contact-us-page': ApiKwContactUsPageKwContactUsPage;
       'api::kw-contact-us.kw-contact-us': ApiKwContactUsKwContactUs;
       'api::kw-development.kw-development': ApiKwDevelopmentKwDevelopment;
       'api::kw-facility.kw-facility': ApiKwFacilityKwFacility;
