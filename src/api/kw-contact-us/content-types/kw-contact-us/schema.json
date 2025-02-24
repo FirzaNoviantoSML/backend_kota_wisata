@@ -1,0 +1,31 @@
+{
+  "kind": "collectionType",
+  "collectionName": "kw_contact_uses",
+  "info": {
+    "singularName": "kw-contact-us",
+    "pluralName": "kw-contact-uses",
+    "displayName": "KW_Contact_Us"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "email": {
+      "type": "string",
+      "required": false
+    },
+    "name": {
+      "type": "string"
+    },
+    "phone": {
+      "type": "string"
+    },
+    "mail_to": {
+      "type": "string"
+    },
+    "message": {
+      "type": "text"
+    }
+  }
+}

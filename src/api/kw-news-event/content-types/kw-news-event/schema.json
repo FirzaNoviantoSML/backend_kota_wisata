@@ -24,8 +24,13 @@
       "required": true
     },
     "isNews": {
-      "type": "boolean",
-      "default": false
+      "type": "enumeration",
+      "enum": [
+        "Media",
+        "News"
+      ],
+      "default": "Media",
+      "required": true
     },
     "slug": {
       "type": "string",
@@ -38,6 +43,11 @@
       "allowedTypes": [
         "images"
       ]
+    },
+    "text_list": {
+      "type": "component",
+      "repeatable": true,
+      "component": "components.text-list"
     }
   }
 }

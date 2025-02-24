@@ -396,6 +396,7 @@ export interface ApiGlobalGlobal extends Struct.SingleTypeSchema {
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
+    text_list: Schema.Attribute.Component<'components.text-list', true>;
     title: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -586,12 +587,77 @@ export interface ApiKwClusterKwCluster extends Struct.CollectionTypeSchema {
     publishedAt: Schema.Attribute.DateTime;
     slug: Schema.Attribute.String & Schema.Attribute.Required;
     text: Schema.Attribute.String;
+    text_list: Schema.Attribute.Component<'components.text-list', true>;
     title: Schema.Attribute.String & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     virtual_link: Schema.Attribute.Component<'components.virtual-link', true>;
     youtube_url: Schema.Attribute.String;
+  };
+}
+
+export interface ApiKwContactUsPageKwContactUsPage
+  extends Struct.SingleTypeSchema {
+  collectionName: 'kw_contact_us_pages';
+  info: {
+    description: '';
+    displayName: 'KW_Contact_Us_Page';
+    pluralName: 'kw-contact-us-pages';
+    singularName: 'kw-contact-us-page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    banner: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::kw-contact-us-page.kw-contact-us-page'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiKwContactUsKwContactUs extends Struct.CollectionTypeSchema {
+  collectionName: 'kw_contact_uses';
+  info: {
+    displayName: 'KW_Contact_Us';
+    pluralName: 'kw-contact-uses';
+    singularName: 'kw-contact-us';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    email: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::kw-contact-us.kw-contact-us'
+    > &
+      Schema.Attribute.Private;
+    mail_to: Schema.Attribute.String;
+    message: Schema.Attribute.Text;
+    name: Schema.Attribute.String;
+    phone: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
   };
 }
 
@@ -625,6 +691,7 @@ export interface ApiKwDevelopmentKwDevelopment
       Schema.Attribute.Private;
     nama: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
+    text_list: Schema.Attribute.Component<'components.text-list', true>;
     title: Schema.Attribute.String & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -659,6 +726,39 @@ export interface ApiKwFacilityKwFacility extends Struct.CollectionTypeSchema {
     name: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
     slug: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiKwGetMoreInfoKwGetMoreInfo
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'kw_get_more_infos';
+  info: {
+    displayName: 'KW_Get_More_Info';
+    pluralName: 'kw-get-more-infos';
+    singularName: 'kw-get-more-info';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    email: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::kw-get-more-info.kw-get-more-info'
+    > &
+      Schema.Attribute.Private;
+    mail_to: Schema.Attribute.String;
+    name: Schema.Attribute.String;
+    phone: Schema.Attribute.String;
+    project_code: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -711,7 +811,9 @@ export interface ApiKwNewsEventKwNewsEvent extends Struct.CollectionTypeSchema {
       Schema.Attribute.Private;
     date_time: Schema.Attribute.DateTime;
     image: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
-    isNews: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    isNews: Schema.Attribute.Enumeration<['Media', 'News']> &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'Media'>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -721,6 +823,7 @@ export interface ApiKwNewsEventKwNewsEvent extends Struct.CollectionTypeSchema {
     publishedAt: Schema.Attribute.DateTime;
     rich_text: Schema.Attribute.Blocks & Schema.Attribute.Required;
     slug: Schema.Attribute.String & Schema.Attribute.Required;
+    text_list: Schema.Attribute.Component<'components.text-list', true>;
     title: Schema.Attribute.String & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -756,6 +859,35 @@ export interface ApiKwPlaceKwPlace extends Struct.CollectionTypeSchema {
     > &
       Schema.Attribute.Private;
     name: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiKwPromotionKwPromotion extends Struct.CollectionTypeSchema {
+  collectionName: 'kw_promotions';
+  info: {
+    description: '';
+    displayName: 'KW_Promotion';
+    pluralName: 'kw-promotions';
+    singularName: 'kw-promotion';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::kw-promotion.kw-promotion'
+    > &
+      Schema.Attribute.Private;
+    promotion: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -1399,11 +1531,15 @@ declare module '@strapi/strapi' {
       'api::kw-access-page.kw-access-page': ApiKwAccessPageKwAccessPage;
       'api::kw-access.kw-access': ApiKwAccessKwAccess;
       'api::kw-cluster.kw-cluster': ApiKwClusterKwCluster;
+      'api::kw-contact-us-page.kw-contact-us-page': ApiKwContactUsPageKwContactUsPage;
+      'api::kw-contact-us.kw-contact-us': ApiKwContactUsKwContactUs;
       'api::kw-development.kw-development': ApiKwDevelopmentKwDevelopment;
       'api::kw-facility.kw-facility': ApiKwFacilityKwFacility;
+      'api::kw-get-more-info.kw-get-more-info': ApiKwGetMoreInfoKwGetMoreInfo;
       'api::kw-home-page.kw-home-page': ApiKwHomePageKwHomePage;
       'api::kw-news-event.kw-news-event': ApiKwNewsEventKwNewsEvent;
       'api::kw-place.kw-place': ApiKwPlaceKwPlace;
+      'api::kw-promotion.kw-promotion': ApiKwPromotionKwPromotion;
       'api::kw-the-city.kw-the-city': ApiKwTheCityKwTheCity;
       'api::specification.specification': ApiSpecificationSpecification;
       'api::summary.summary': ApiSummarySummary;
