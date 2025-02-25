@@ -44,7 +44,8 @@
     },
     "slug": {
       "type": "string",
-      "required": true
+      "required": true,
+      "regex": "^[a-z-]+$"
     }
   }
 }
