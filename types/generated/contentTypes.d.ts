@@ -495,6 +495,7 @@ export interface ApiKwClusterKwCluster extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    description: Schema.Attribute.String;
     download_link: Schema.Attribute.String;
     e_catalog_link: Schema.Attribute.String;
     image: Schema.Attribute.Media<'images'>;
@@ -514,7 +515,6 @@ export interface ApiKwClusterKwCluster extends Struct.CollectionTypeSchema {
     project_code: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
     slug: Schema.Attribute.String & Schema.Attribute.Required;
-    text: Schema.Attribute.String;
     text_list: Schema.Attribute.Component<'components.text-list', true>;
     title: Schema.Attribute.String & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
@@ -619,8 +619,8 @@ export interface ApiKwDevelopmentKwDevelopment
       'api::kw-development.kw-development'
     > &
       Schema.Attribute.Private;
-    nama: Schema.Attribute.String & Schema.Attribute.Required;
     publishedAt: Schema.Attribute.DateTime;
+    slug: Schema.Attribute.String & Schema.Attribute.Required;
     text_list: Schema.Attribute.Component<'components.text-list', true>;
     title: Schema.Attribute.String & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
