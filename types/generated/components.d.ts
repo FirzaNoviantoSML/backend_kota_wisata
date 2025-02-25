@@ -8,7 +8,6 @@ export interface ComponentsBtn extends Struct.ComponentSchema {
   };
   attributes: {
     text: Schema.Attribute.String;
-    url: Schema.Attribute.String;
   };
 }
 
@@ -138,7 +137,6 @@ export interface LayoutBanner extends Struct.ComponentSchema {
     displayName: 'Banner';
   };
   attributes: {
-    button: Schema.Attribute.Component<'components.button', false>;
     description: Schema.Attribute.Text;
     image: Schema.Attribute.Media<'images'>;
     text_color: Schema.Attribute.String;
