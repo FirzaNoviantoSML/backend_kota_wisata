@@ -27,7 +27,9 @@
       ]
     },
     "slug": {
-      "type": "string"
+      "type": "string",
+      "required": true,
+      "regex": "^[a-z-]+$"
     },
     "kw_places": {
       "type": "relation",

@@ -689,7 +689,7 @@ export interface ApiKwDevelopmentKwDevelopment
       'api::kw-development.kw-development'
     > &
       Schema.Attribute.Private;
-    nama: Schema.Attribute.String;
+    nama: Schema.Attribute.String & Schema.Attribute.Required;
     publishedAt: Schema.Attribute.DateTime;
     text_list: Schema.Attribute.Component<'components.text-list', true>;
     title: Schema.Attribute.String & Schema.Attribute.Required;
@@ -725,7 +725,7 @@ export interface ApiKwFacilityKwFacility extends Struct.CollectionTypeSchema {
       Schema.Attribute.Private;
     name: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
-    slug: Schema.Attribute.String;
+    slug: Schema.Attribute.String & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
