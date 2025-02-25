@@ -404,39 +404,6 @@ export interface ApiGlobalGlobal extends Struct.SingleTypeSchema {
   };
 }
 
-export interface ApiHomePageHomePage extends Struct.SingleTypeSchema {
-  collectionName: 'home_pages';
-  info: {
-    description: '';
-    displayName: 'Home Page';
-    pluralName: 'home-pages';
-    singularName: 'home-page';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    blocks: Schema.Attribute.DynamicZone<
-      ['layout.hero-section', 'layout.features-section']
-    >;
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    description: Schema.Attribute.Text;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::home-page.home-page'
-    > &
-      Schema.Attribute.Private;
-    publishedAt: Schema.Attribute.DateTime;
-    title: Schema.Attribute.String;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-  };
-}
-
 export interface ApiKwAboutUsKwAboutUs extends Struct.SingleTypeSchema {
   collectionName: 'kw_about_uses';
   info: {
@@ -562,7 +529,6 @@ export interface ApiKwClusterKwCluster extends Struct.CollectionTypeSchema {
   };
   attributes: {
     buttons: Schema.Attribute.Component<'components.button', true>;
-    cluster_code: Schema.Attribute.String;
     cluster_type: Schema.Attribute.DynamicZone<['components.cluster-type']>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -632,6 +598,7 @@ export interface ApiKwContactUsPageKwContactUsPage
 export interface ApiKwContactUsKwContactUs extends Struct.CollectionTypeSchema {
   collectionName: 'kw_contact_uses';
   info: {
+    description: '';
     displayName: 'KW_Contact_Us';
     pluralName: 'kw-contact-uses';
     singularName: 'kw-contact-us';
@@ -658,6 +625,7 @@ export interface ApiKwContactUsKwContactUs extends Struct.CollectionTypeSchema {
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    URL: Schema.Attribute.Text;
   };
 }
 
@@ -689,8 +657,8 @@ export interface ApiKwDevelopmentKwDevelopment
       'api::kw-development.kw-development'
     > &
       Schema.Attribute.Private;
-    nama: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
+    slug: Schema.Attribute.String;
     text_list: Schema.Attribute.Component<'components.text-list', true>;
     title: Schema.Attribute.String & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
@@ -736,6 +704,7 @@ export interface ApiKwGetMoreInfoKwGetMoreInfo
   extends Struct.CollectionTypeSchema {
   collectionName: 'kw_get_more_infos';
   info: {
+    description: '';
     displayName: 'KW_Get_More_Info';
     pluralName: 'kw-get-more-infos';
     singularName: 'kw-get-more-info';
@@ -762,6 +731,7 @@ export interface ApiKwGetMoreInfoKwGetMoreInfo
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    URL: Schema.Attribute.Text;
   };
 }
 
@@ -1526,7 +1496,6 @@ declare module '@strapi/strapi' {
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
       'api::global.global': ApiGlobalGlobal;
-      'api::home-page.home-page': ApiHomePageHomePage;
       'api::kw-about-us.kw-about-us': ApiKwAboutUsKwAboutUs;
       'api::kw-access-page.kw-access-page': ApiKwAccessPageKwAccessPage;
       'api::kw-access.kw-access': ApiKwAccessKwAccess;

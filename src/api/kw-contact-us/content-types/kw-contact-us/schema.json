@@ -4,7 +4,8 @@
   "info": {
     "singularName": "kw-contact-us",
     "pluralName": "kw-contact-uses",
-    "displayName": "KW_Contact_Us"
+    "displayName": "KW_Contact_Us",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -25,6 +26,9 @@
       "type": "string"
     },
     "message": {
+      "type": "text"
+    },
+    "URL": {
       "type": "text"
     }
   }
