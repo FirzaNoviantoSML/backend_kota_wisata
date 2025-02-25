@@ -646,6 +646,7 @@ export interface ApiKwFacilityKwFacility extends Struct.CollectionTypeSchema {
       Schema.Attribute.Private;
     description: Schema.Attribute.Text;
     image: Schema.Attribute.Media<'images', true>;
+    keyword: Schema.Attribute.Component<'components.text-list', true>;
     kw_places: Schema.Attribute.Relation<'oneToMany', 'api::kw-place.kw-place'>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
