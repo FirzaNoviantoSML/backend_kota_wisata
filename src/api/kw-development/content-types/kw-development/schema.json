@@ -13,7 +13,9 @@
   "pluginOptions": {},
   "attributes": {
     "nama": {
-      "type": "string"
+      "type": "string",
+      "regex": "^[a-z-]+$",
+      "required": true
     },
     "image": {
       "type": "media",

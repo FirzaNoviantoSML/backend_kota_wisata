@@ -61,9 +61,6 @@
     "project_code": {
       "type": "string"
     },
-    "cluster_code": {
-      "type": "string"
-    },
     "youtube_url": {
       "type": "string"
     },
@@ -75,7 +72,8 @@
     },
     "slug": {
       "type": "string",
-      "required": true
+      "required": true,
+      "regex": "^[a-z-]+$"
     },
     "virtual_link": {
       "displayName": "virtual_link",
