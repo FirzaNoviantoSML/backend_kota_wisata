@@ -21,10 +21,8 @@
         "images"
       ]
     },
-    "button": {
-      "type": "component",
-      "repeatable": false,
-      "component": "components.button"
+    "text_color": {
+      "type": "string"
     }
   }
 }

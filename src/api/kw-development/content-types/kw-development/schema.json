@@ -12,7 +12,7 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "nama": {
+    "slug": {
       "type": "string",
       "regex": "^[a-z-]+$",
       "required": true
