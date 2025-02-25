@@ -72,7 +72,8 @@
     },
     "slug": {
       "type": "string",
-      "required": true
+      "required": true,
+      "regex": "^[a-z-]+$"
     },
     "virtual_link": {
       "displayName": "virtual_link",

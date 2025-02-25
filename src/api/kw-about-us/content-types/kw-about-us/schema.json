@@ -12,13 +12,6 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "main": {
-      "type": "dynamiczone",
-      "components": [
-        "layout.second"
-      ],
-      "max": 1
-    },
     "map_url": {
       "type": "string",
       "required": true
@@ -43,12 +36,12 @@
       "required": true
     },
     "banner_image": {
-      "allowedTypes": [
-        "images"
-      ],
       "type": "media",
       "multiple": false,
-      "required": true
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
     },
     "link": {
       "type": "component",
@@ -56,11 +49,21 @@
       "component": "components.link",
       "required": false
     },
-    "title_image": {
-      "type": "string"
-    },
-    "description_image": {
+    "vision_title": {
       "type": "text"
+    },
+    "vision_description": {
+      "type": "text"
+    },
+    "carausel_image": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": true
     }
   }
 }

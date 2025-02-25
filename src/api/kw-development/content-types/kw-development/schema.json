@@ -12,8 +12,10 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "slug": {
-      "type": "string"
+    "nama": {
+      "type": "string",
+      "regex": "^[a-z-]+$",
+      "required": true
     },
     "image": {
       "type": "media",

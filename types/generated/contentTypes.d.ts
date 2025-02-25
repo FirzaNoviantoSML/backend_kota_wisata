@@ -369,41 +369,6 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
   };
 }
 
-export interface ApiGlobalGlobal extends Struct.SingleTypeSchema {
-  collectionName: 'globals';
-  info: {
-    description: '';
-    displayName: 'Global';
-    pluralName: 'globals';
-    singularName: 'global';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    banner: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'> &
-      Schema.Attribute.Required;
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    description: Schema.Attribute.Text;
-    footer: Schema.Attribute.Component<'layout.footer', false>;
-    header: Schema.Attribute.Component<'layout.header', false>;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::global.global'
-    > &
-      Schema.Attribute.Private;
-    publishedAt: Schema.Attribute.DateTime;
-    text_list: Schema.Attribute.Component<'components.text-list', true>;
-    title: Schema.Attribute.String;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-  };
-}
-
 export interface ApiKwAboutUsKwAboutUs extends Struct.SingleTypeSchema {
   collectionName: 'kw_about_uses';
   info: {
@@ -417,11 +382,14 @@ export interface ApiKwAboutUsKwAboutUs extends Struct.SingleTypeSchema {
   };
   attributes: {
     banner_image: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
+    carausel_image: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    >;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     description: Schema.Attribute.Text & Schema.Attribute.Required;
-    description_image: Schema.Attribute.Text;
     info: Schema.Attribute.Component<'components.specification', true>;
     link: Schema.Attribute.Component<'components.link', false>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
@@ -430,20 +398,14 @@ export interface ApiKwAboutUsKwAboutUs extends Struct.SingleTypeSchema {
       'api::kw-about-us.kw-about-us'
     > &
       Schema.Attribute.Private;
-    main: Schema.Attribute.DynamicZone<['layout.second']> &
-      Schema.Attribute.SetMinMax<
-        {
-          max: 1;
-        },
-        number
-      >;
     map_url: Schema.Attribute.String & Schema.Attribute.Required;
     publishedAt: Schema.Attribute.DateTime;
     title: Schema.Attribute.String & Schema.Attribute.Required;
-    title_image: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    vision_description: Schema.Attribute.Text;
+    vision_title: Schema.Attribute.Text;
     youtube_url: Schema.Attribute.Component<'components.link', false>;
   };
 }
@@ -657,8 +619,8 @@ export interface ApiKwDevelopmentKwDevelopment
       'api::kw-development.kw-development'
     > &
       Schema.Attribute.Private;
+    nama: Schema.Attribute.String & Schema.Attribute.Required;
     publishedAt: Schema.Attribute.DateTime;
-    slug: Schema.Attribute.String;
     text_list: Schema.Attribute.Component<'components.text-list', true>;
     title: Schema.Attribute.String & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
@@ -693,7 +655,7 @@ export interface ApiKwFacilityKwFacility extends Struct.CollectionTypeSchema {
       Schema.Attribute.Private;
     name: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
-    slug: Schema.Attribute.String;
+    slug: Schema.Attribute.String & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1495,7 +1457,6 @@ declare module '@strapi/strapi' {
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
-      'api::global.global': ApiGlobalGlobal;
       'api::kw-about-us.kw-about-us': ApiKwAboutUsKwAboutUs;
       'api::kw-access-page.kw-access-page': ApiKwAccessPageKwAccessPage;
       'api::kw-access.kw-access': ApiKwAccessKwAccess;
