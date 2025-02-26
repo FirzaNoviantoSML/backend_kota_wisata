@@ -137,6 +137,7 @@ export interface LayoutBanner extends Struct.ComponentSchema {
     displayName: 'Banner';
   };
   attributes: {
+    button: Schema.Attribute.Component<'components.button', false>;
     description: Schema.Attribute.Text;
     image: Schema.Attribute.Media<'images'>;
     text_color: Schema.Attribute.String;
