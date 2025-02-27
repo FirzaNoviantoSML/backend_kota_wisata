@@ -491,6 +491,7 @@ export interface ApiKwClusterKwCluster extends Struct.CollectionTypeSchema {
   };
   attributes: {
     buttons: Schema.Attribute.Component<'components.button', true>;
+    cluster_code: Schema.Attribute.String;
     cluster_type: Schema.Attribute.DynamicZone<['components.cluster-type']>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -572,22 +573,26 @@ export interface ApiKwContactUsKwContactUs extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    email: Schema.Attribute.String;
+    email: Schema.Attribute.String & Schema.Attribute.Required;
+    fullname: Schema.Attribute.String & Schema.Attribute.Required;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::kw-contact-us.kw-contact-us'
     > &
       Schema.Attribute.Private;
-    mail_to: Schema.Attribute.String;
+    mail_to: Schema.Attribute.String & Schema.Attribute.DefaultTo<'sales'>;
     message: Schema.Attribute.Text;
-    name: Schema.Attribute.String;
-    phone: Schema.Attribute.String;
+    mobile: Schema.Attribute.String & Schema.Attribute.Required;
+    project_code: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'SF_4LAA'>;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    URL: Schema.Attribute.Text;
+    utm: Schema.Attribute.Text;
+    web: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'kota-wisata.com'>;
   };
 }
 
@@ -676,10 +681,13 @@ export interface ApiKwGetMoreInfoKwGetMoreInfo
     draftAndPublish: true;
   };
   attributes: {
+    cluster_code: Schema.Attribute.String;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     email: Schema.Attribute.String;
+    fullname: Schema.Attribute.String;
+    lead_source: Schema.Attribute.String;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -687,14 +695,15 @@ export interface ApiKwGetMoreInfoKwGetMoreInfo
     > &
       Schema.Attribute.Private;
     mail_to: Schema.Attribute.String;
-    name: Schema.Attribute.String;
-    phone: Schema.Attribute.String;
+    mobile: Schema.Attribute.String;
     project_code: Schema.Attribute.String;
+    project_name: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    URL: Schema.Attribute.Text;
+    utm: Schema.Attribute.Text;
+    web: Schema.Attribute.String;
   };
 }
 
@@ -923,6 +932,7 @@ export interface ApiSummarySummary extends Struct.CollectionTypeSchema {
 export interface ApiTypeType extends Struct.CollectionTypeSchema {
   collectionName: 'types';
   info: {
+    description: '';
     displayName: 'Type';
     pluralName: 'types';
     singularName: 'type';

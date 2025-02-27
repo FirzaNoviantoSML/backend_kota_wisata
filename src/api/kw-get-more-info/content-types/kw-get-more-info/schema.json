@@ -12,13 +12,13 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "name": {
+    "fullname": {
       "type": "string"
     },
     "email": {
       "type": "string"
     },
-    "phone": {
+    "mobile": {
       "type": "string"
     },
     "project_code": {
@@ -27,8 +27,20 @@
     "mail_to": {
       "type": "string"
     },
-    "URL": {
+    "utm": {
       "type": "text"
+    },
+    "project_name": {
+      "type": "string"
+    },
+    "cluster_code": {
+      "type": "string"
+    },
+    "lead_source": {
+      "type": "string"
+    },
+    "web": {
+      "type": "string"
     }
   }
 }

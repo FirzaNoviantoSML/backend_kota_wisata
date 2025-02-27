@@ -85,6 +85,9 @@
       "type": "component",
       "repeatable": true,
       "component": "components.text-list"
+    },
+    "cluster_code": {
+      "type": "string"
     }
   }
 }
