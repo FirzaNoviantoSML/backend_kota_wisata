@@ -1,0 +1,46 @@
+{
+  "kind": "collectionType",
+  "collectionName": "kw_facilities",
+  "info": {
+    "singularName": "kw-facility",
+    "pluralName": "kw-facilities",
+    "displayName": "KW_Facility",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "image": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "slug": {
+      "type": "string",
+      "required": true,
+      "regex": "^[a-z-]+$"
+    },
+    "kw_places": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::kw-place.kw-place",
+      "mappedBy": "kw_facility"
+    },
+    "keyword": {
+      "type": "component",
+      "repeatable": true,
+      "component": "components.text-list"
+    }
+  }
+}

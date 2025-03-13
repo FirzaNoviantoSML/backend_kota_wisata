@@ -1,0 +1,46 @@
+{
+  "kind": "collectionType",
+  "collectionName": "kw_contact_uses",
+  "info": {
+    "singularName": "kw-contact-us",
+    "pluralName": "kw-contact-uses",
+    "displayName": "KW_Contact_Us",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "email": {
+      "type": "string",
+      "required": true
+    },
+    "fullname": {
+      "type": "string",
+      "required": true
+    },
+    "mobile": {
+      "type": "string",
+      "required": true
+    },
+    "mail_to": {
+      "type": "string",
+      "default": "sales"
+    },
+    "message": {
+      "type": "text"
+    },
+    "utm": {
+      "type": "text"
+    },
+    "project_code": {
+      "type": "string",
+      "default": "SF_4LAA"
+    },
+    "web": {
+      "type": "string",
+      "default": "kota-wisata.com"
+    }
+  }
+}

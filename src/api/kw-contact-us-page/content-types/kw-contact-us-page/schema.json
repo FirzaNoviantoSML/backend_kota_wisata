@@ -1,0 +1,33 @@
+{
+  "kind": "singleType",
+  "collectionName": "kw_contact_us_pages",
+  "info": {
+    "singularName": "kw-contact-us-page",
+    "pluralName": "kw-contact-us-pages",
+    "displayName": "KW_Contact_Us_Page",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "banner": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    }
+  }
+}

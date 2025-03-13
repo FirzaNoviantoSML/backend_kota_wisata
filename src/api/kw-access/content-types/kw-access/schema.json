@@ -1,0 +1,51 @@
+{
+  "kind": "collectionType",
+  "collectionName": "kw_accesses",
+  "info": {
+    "singularName": "kw-access",
+    "pluralName": "kw-accesses",
+    "displayName": "KW_Access",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "banner": {
+      "type": "component",
+      "repeatable": false,
+      "component": "layout.banner",
+      "required": true
+    },
+    "thumbnail": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "button": {
+      "displayName": "btn",
+      "type": "component",
+      "repeatable": false,
+      "component": "components.btn",
+      "required": true
+    },
+    "slug": {
+      "type": "string",
+      "required": true,
+      "regex": "^[a-z-]+$"
+    }
+  }
+}

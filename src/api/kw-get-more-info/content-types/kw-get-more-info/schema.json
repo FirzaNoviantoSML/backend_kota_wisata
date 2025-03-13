@@ -1,0 +1,46 @@
+{
+  "kind": "collectionType",
+  "collectionName": "kw_get_more_infos",
+  "info": {
+    "singularName": "kw-get-more-info",
+    "pluralName": "kw-get-more-infos",
+    "displayName": "KW_Get_More_Info",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "fullname": {
+      "type": "string"
+    },
+    "email": {
+      "type": "string"
+    },
+    "mobile": {
+      "type": "string"
+    },
+    "project_code": {
+      "type": "string"
+    },
+    "mail_to": {
+      "type": "string"
+    },
+    "utm": {
+      "type": "text"
+    },
+    "project_name": {
+      "type": "string"
+    },
+    "cluster_code": {
+      "type": "string"
+    },
+    "lead_source": {
+      "type": "string"
+    },
+    "web": {
+      "type": "string"
+    }
+  }
+}

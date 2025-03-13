@@ -13,7 +13,8 @@
   "pluginOptions": {},
   "attributes": {
     "title": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "image": {
       "type": "media",
@@ -32,7 +33,7 @@
     "label": {
       "type": "string"
     },
-    "text": {
+    "description": {
       "type": "string"
     },
     "buttons": {
@@ -60,9 +61,6 @@
     "project_code": {
       "type": "string"
     },
-    "cluster_code": {
-      "type": "string"
-    },
     "youtube_url": {
       "type": "string"
     },
@@ -70,6 +68,25 @@
       "type": "string"
     },
     "e_catalog_link": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "string",
+      "required": true,
+      "regex": "^[a-z-]+$"
+    },
+    "virtual_link": {
+      "displayName": "virtual_link",
+      "type": "component",
+      "repeatable": true,
+      "component": "components.virtual-link"
+    },
+    "text_list": {
+      "type": "component",
+      "repeatable": true,
+      "component": "components.text-list"
+    },
+    "cluster_code": {
       "type": "string"
     }
   }

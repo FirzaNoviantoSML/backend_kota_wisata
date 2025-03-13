@@ -4,7 +4,8 @@
   "info": {
     "singularName": "kw-news-event",
     "pluralName": "kw-news-events",
-    "displayName": "KW_News_Event"
+    "displayName": "KW_News_Event",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -12,10 +13,42 @@
   "pluginOptions": {},
   "attributes": {
     "title": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
-    "content": {
-      "type": "blocks"
+    "date_time": {
+      "type": "datetime"
+    },
+    "rich_text": {
+      "type": "blocks",
+      "required": true
+    },
+    "isNews": {
+      "type": "enumeration",
+      "enum": [
+        "Media",
+        "News"
+      ],
+      "default": "Media",
+      "required": true
+    },
+    "slug": {
+      "type": "string",
+      "required": true,
+      "regex": "^[a-z-]+$"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "text_list": {
+      "type": "component",
+      "repeatable": true,
+      "component": "components.text-list"
     }
   }
 }

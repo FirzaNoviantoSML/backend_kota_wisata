@@ -1,5 +1,16 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
+export interface ComponentsBtn extends Struct.ComponentSchema {
+  collectionName: 'components_components_btns';
+  info: {
+    description: '';
+    displayName: 'btn';
+  };
+  attributes: {
+    text: Schema.Attribute.String;
+  };
+}
+
 export interface ComponentsButton extends Struct.ComponentSchema {
   collectionName: 'components_components_buttons';
   info: {
@@ -14,6 +25,7 @@ export interface ComponentsButton extends Struct.ComponentSchema {
 export interface ComponentsCarousel extends Struct.ComponentSchema {
   collectionName: 'components_components_carousels';
   info: {
+    description: '';
     displayName: 'Carousel';
   };
   attributes: {
@@ -70,23 +82,51 @@ export interface ComponentsFeature extends Struct.ComponentSchema {
 export interface ComponentsLink extends Struct.ComponentSchema {
   collectionName: 'components_components_links';
   info: {
+    description: '';
     displayName: 'Link';
   };
   attributes: {
-    isExternal: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
-    text: Schema.Attribute.String;
-    url: Schema.Attribute.String;
+    isExternal: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
+    text: Schema.Attribute.String & Schema.Attribute.Required;
+    url: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
 
 export interface ComponentsSpecification extends Struct.ComponentSchema {
   collectionName: 'components_components_specifications';
   info: {
+    description: '';
     displayName: 'Specification';
   };
   attributes: {
+    description: Schema.Attribute.Text;
     label: Schema.Attribute.String;
+    value: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface ComponentsTextList extends Struct.ComponentSchema {
+  collectionName: 'components_components_text_lists';
+  info: {
+    displayName: 'Text List';
+  };
+  attributes: {
     value: Schema.Attribute.String;
+  };
+}
+
+export interface ComponentsVirtualLink extends Struct.ComponentSchema {
+  collectionName: 'components_components_virtual_links';
+  info: {
+    displayName: 'virtual_link';
+  };
+  attributes: {
+    label: Schema.Attribute.String & Schema.Attribute.Required;
+    link: Schema.Attribute.String & Schema.Attribute.Required;
+    thumbnail: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    > &
+      Schema.Attribute.Required;
   };
 }
 
@@ -94,13 +134,14 @@ export interface LayoutBanner extends Struct.ComponentSchema {
   collectionName: 'components_layout_banners';
   info: {
     description: '';
-    displayName: 'banner';
+    displayName: 'Banner';
   };
   attributes: {
     button: Schema.Attribute.Component<'components.button', false>;
     description: Schema.Attribute.Text;
     image: Schema.Attribute.Media<'images'>;
-    title: Schema.Attribute.String;
+    text_color: Schema.Attribute.String;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
 
@@ -157,7 +198,7 @@ export interface LayoutSecond extends Struct.ComponentSchema {
   collectionName: 'components_layout_seconds';
   info: {
     description: '';
-    displayName: 'Second';
+    displayName: 'Main Content';
   };
   attributes: {
     banner: Schema.Attribute.Component<'layout.banner', false>;
@@ -168,9 +209,23 @@ export interface LayoutSecond extends Struct.ComponentSchema {
   };
 }
 
+export interface LayoutVirtualLink extends Struct.ComponentSchema {
+  collectionName: 'components_layout_virtual_links';
+  info: {
+    description: '';
+    displayName: 'virtual_link';
+  };
+  attributes: {
+    label: Schema.Attribute.String;
+    link: Schema.Attribute.String;
+    thumbnail: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+  };
+}
+
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
+      'components.btn': ComponentsBtn;
       'components.button': ComponentsButton;
       'components.carousel': ComponentsCarousel;
       'components.cluster-type': ComponentsClusterType;
@@ -178,12 +233,15 @@ declare module '@strapi/strapi' {
       'components.feature': ComponentsFeature;
       'components.link': ComponentsLink;
       'components.specification': ComponentsSpecification;
+      'components.text-list': ComponentsTextList;
+      'components.virtual-link': ComponentsVirtualLink;
       'layout.banner': LayoutBanner;
       'layout.features-section': LayoutFeaturesSection;
       'layout.footer': LayoutFooter;
       'layout.header': LayoutHeader;
       'layout.hero-section': LayoutHeroSection;
       'layout.second': LayoutSecond;
+      'layout.virtual-link': LayoutVirtualLink;
     }
   }
 }

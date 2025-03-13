@@ -12,8 +12,10 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "nama": {
-      "type": "string"
+    "slug": {
+      "type": "string",
+      "regex": "^[a-z-]+$",
+      "required": true
     },
     "image": {
       "type": "media",
@@ -28,6 +30,18 @@
       "relation": "oneToMany",
       "target": "api::kw-cluster.kw-cluster",
       "mappedBy": "kw_development"
+    },
+    "description": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "text_list": {
+      "type": "component",
+      "repeatable": true,
+      "component": "components.text-list"
     }
   }
 }

@@ -1,7 +1,8 @@
 {
   "collectionName": "components_components_specifications",
   "info": {
-    "displayName": "Specification"
+    "displayName": "Specification",
+    "description": ""
   },
   "options": {},
   "attributes": {
@@ -9,7 +10,12 @@
       "type": "string"
     },
     "value": {
-      "type": "string"
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text",
+      "required": false
     }
   }
 }

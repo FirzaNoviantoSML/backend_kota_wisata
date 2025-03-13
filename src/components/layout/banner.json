@@ -1,13 +1,14 @@
 {
   "collectionName": "components_layout_banners",
   "info": {
-    "displayName": "banner",
+    "displayName": "Banner",
     "description": ""
   },
   "options": {},
   "attributes": {
     "title": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "description": {
       "type": "text"
@@ -19,6 +20,9 @@
       "allowedTypes": [
         "images"
       ]
+    },
+    "text_color": {
+      "type": "string"
     },
     "button": {
       "type": "component",

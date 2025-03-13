@@ -1,0 +1,69 @@
+{
+  "kind": "singleType",
+  "collectionName": "kw_about_uses",
+  "info": {
+    "singularName": "kw-about-us",
+    "pluralName": "kw-about-uses",
+    "displayName": "KW_About_Us",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "map_url": {
+      "type": "string",
+      "required": true
+    },
+    "info": {
+      "type": "component",
+      "repeatable": true,
+      "component": "components.specification",
+      "required": false
+    },
+    "youtube_url": {
+      "type": "component",
+      "repeatable": false,
+      "component": "components.link"
+    },
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text",
+      "required": true
+    },
+    "banner_image": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "link": {
+      "type": "component",
+      "repeatable": false,
+      "component": "components.link",
+      "required": false
+    },
+    "vision_title": {
+      "type": "text"
+    },
+    "vision_description": {
+      "type": "text"
+    },
+    "carausel_image": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": true
+    }
+  }
+}

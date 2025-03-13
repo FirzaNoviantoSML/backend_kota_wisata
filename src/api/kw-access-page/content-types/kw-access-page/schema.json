@@ -1,0 +1,23 @@
+{
+  "kind": "singleType",
+  "collectionName": "kw_access_pages",
+  "info": {
+    "singularName": "kw-access-page",
+    "pluralName": "kw-access-pages",
+    "displayName": "KW_Access_Page"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text",
+      "required": true
+    }
+  }
+}
